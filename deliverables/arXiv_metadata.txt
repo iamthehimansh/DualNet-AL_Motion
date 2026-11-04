@@ -1,0 +1,32 @@
+arXiv submission metadata (paste into the arXiv web form)
+=========================================================
+
+Title:
+DualNet-AL: A Bi-Network Meta-Learning Framework for Multi-Class Active Learning
+
+Authors (arXiv format):
+Himansh Raj, Om Narayan Pandey, Jaswinder Singh
+
+Abstract (1340 characters; arXiv limit 1920):
+Pool-based active learning reduces annotation cost by letting a model choose which unlabelled images to label, but single-criterion strategies are brittle: uncertainty sampling picks redundant or outlying samples, a single model reinforces its own errors, and at small budgets the model's uncertainty is itself unreliable. We present DualNet-AL, which trains two architecturally different convolutional networks, scores every unlabelled sample with five complementary signals (uncertainty, inter-network disagreement, representativeness, diversity and class balance), fuses them with weights adapted online by a meta-learner, and, in its second version (v2), combines a budget-aware prior that favours typical samples while labels are scarce with cluster-based batch construction. The configuration was chosen on validation data only and evaluated on held-out seeds and the official test splits. Across Fashion-MNIST, SVHN and CIFAR-10 (100->900 labels), DualNet-AL v2 improves the area under the learning curve over random sampling by 2.41, 4.38 and 1.46 percentage points, winning on each of the 3 held-out seeds of every dataset; it is the best of nine methods on SVHN and CIFAR-10 and more than doubles the worst-class recall of random sampling on SVHN (40.5% vs 16.7%). Code, per-run logs and a one-command demo are publicly available.
+
+Comments:
+4 pages, 5 figures, 5 tables. Code and per-run logs: https://github.com/iamthehimansh/DualNet-AL_Motion
+
+Primary category:
+cs.LG (Machine Learning)
+
+Cross-list:
+cs.CV (Computer Vision and Pattern Recognition)
+
+ACM class (optional):
+I.2.6; I.5.1
+
+MSC / journal-ref / DOI:
+(leave empty)
+
+License (choose one in the form; recommendation):
+CC BY 4.0  (lets others reuse with credit; required by some conferences' preprint rules - check the target venue)
+
+Files to upload:
+deliverables/DualNet-AL_arXiv_source.tar.gz  (main.tex + figures/*.png; compiles with pdflatex, no BibTeX needed)

@@ -21,3 +21,8 @@ deliverables/DualNet-AL_Demo_Bundle.zip
 .cocreate/
 .DS_Store
 *.tmp
+
+# LaTeX build by-products
+paper_arxiv/*.log
+paper_arxiv/*.aux
+paper_arxiv/*.out
