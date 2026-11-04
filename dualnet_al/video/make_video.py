@@ -30,7 +30,7 @@ BUILD = os.path.join(HERE, "build")
 MANIM = os.path.expanduser("~/.local/bin/manim")
 DS = {"fmnist": "Fashion-MNIST", "svhn": "SVHN", "cifar10": "CIFAR-10"}
 SCENES = ["S01Title", "S02Problem", "S03TwoNets", "S04Signals", "S05V2", "S06Protocol", "S07Results",
-          "S08Findings", "S09Prototype", "S10Next", "S11End"]  # must match scenes.SCENES
+          "S08Findings", "S09Prototype", "S10Paper", "S10Next", "S11End"]  # must match scenes.SCENES
 _T0 = time.time()
 
 
@@ -79,8 +79,11 @@ def narration(s):
         "S09Prototype": "The prototype is complete: both networks, all five signals, the meta-learner, eight "
                         "comparison methods in the same code, automated tests, and a live web demo that shows each "
                         "round as it happens, started with one command.",
+        "S10Paper": "We have also written a five page research paper, by Himansh Raj, Om Narayan Pandey and "
+                    "Doctor Jaswinder Singh. It covers the method, the leak free protocol, every result table, an "
+                    "ablation study and our limitations, and all the code is public on GitHub.",
         "S10Next": "Next, we will add CIFAR one hundred and long-tail data, larger budgets, more seeds with "
-                   "significance tests, and write our Scopus conference paper.",
+                   "significance tests, and submit our paper to a Scopus indexed conference.",
         "S11End": "DualNet-AL learns how to select, not only what to classify. Thank you.",
     }
 

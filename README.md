@@ -5,6 +5,12 @@
 Capstone project BT-20 · IILM University, Greater Noida · B.Tech CSE (4th year), 2026–27
 Himansh Raj (CS-23411324) · Om Narayan Pandey (CS-2341893) · Guide: Dr. Jaswinder Singh
 
+📄 **Paper:** [deliverables/DualNet-AL_Paper.pdf](deliverables/DualNet-AL_Paper.pdf) — Himansh Raj, Om Narayan Pandey,
+Jaswinder Singh, *“DualNet-AL: A Bi-Network Meta-Learning Framework for Multi-Class Active Learning”*, IILM University,
+2026 (5 pages; generated from the results in this repository by `dualnet_al/build_paper.py`).
+🎞️ **Video:** [deliverables/DualNet-AL_Motion.mp4](deliverables/DualNet-AL_Motion.mp4) ·
+📊 **Slides:** [deliverables/DualNet-AL_Midterm.pptx](deliverables/DualNet-AL_Midterm.pptx)
+
 Active learning trains a classifier with as few human labels as possible by letting the model choose which
 unlabelled images to label next. DualNet-AL trains **two different networks**, scores every unlabelled image with
 **five signals**, combines them with **weights a meta-learner adapts every round**, and builds each batch so it
@@ -39,7 +45,7 @@ DualNet-AL v2 compared with Random on the same seeds:
 | SVHN | +4.38 pp | 3/3 | 69.70 vs 70.20 | 40.5 vs 16.7 | 65.77 vs 63.91 |
 | CIFAR-10 | +1.46 pp | 3/3 | 53.98 vs 52.93 | 27.9 vs 21.2 | 53.07 vs 51.70 |
 
-Honest reading: v2 is the best method on SVHN and CIFAR-10 and second on Fashion-MNIST (Margin is 0.16 pp ahead).
+Honest reading: v2 is the best method on SVHN and CIFAR-10 and second on Fashion-MNIST (Margin is 0.17 pp ahead).
 On SVHN its *final* accuracy is 0.5 pp below Random even though its area under the curve is 4.4 pp higher, i.e. it
 is more accurate at almost every earlier budget. Three seeds give a paired comparison, not yet a significance test.
 
@@ -117,14 +123,16 @@ dualnet_al/
   tune.py             validation-only tuning of v2
   run_experiments.py  benchmark grid + aggregation (paired comparison vs Random)
   make_figures.py     charts and diagrams
+  build_paper.py      research paper (HTML -> PDF) from the results
   build_pptx.py       presentation deck from the results;  check_pptx.py  slide layout check
   video/              Kokoro-voiced, Whisper-checked motion-graphics video (manim)
   results/            tuning runs, chosen config, demo screenshots
   results_heldout/    held-out runs (81 JSON files), summary.json, plots
   run_demo.bat/.ps1/.sh   one-command launchers
 deliverables/
-  DualNet-AL_Midterm.pptx     mid-term presentation (14 slides)
-  DualNet-AL_Motion.mp4       narrated video (3 min 9 s)
+  DualNet-AL_Paper.pdf        research paper (5 pages, 3 authors)
+  DualNet-AL_Midterm.pptx     mid-term presentation (15 slides)
+  DualNet-AL_Motion.mp4       narrated video
   Video_Narration_Script.txt
 ```
 
@@ -134,5 +142,18 @@ deliverables/
 - Three held-out seeds: paired comparison only; Wilcoxon tests over more seeds are planned.
 - The meta-learner's reward uses a 500-image validation set that other methods do not use; a label-free reward is
   planned.
-- Next: CIFAR-100 and long-tail data, the Learning-Loss baseline, larger budgets on the full datasets, ResNet
-  backbones, and a SCOPUS-indexed conference paper.
+- Calibration (expected calibration error) is worse than Random; temperature scaling is the planned fix.
+- Next: CIFAR-100 and long-tail data, the BADGE and Learning-Loss baselines, larger budgets on the full datasets,
+  ResNet backbones, and submission of the paper to a SCOPUS-indexed conference.
+
+## Citation
+
+```bibtex
+@techreport{raj2026dualnetal,
+  title       = {DualNet-AL: A Bi-Network Meta-Learning Framework for Multi-Class Active Learning},
+  author      = {Raj, Himansh and Pandey, Om Narayan and Singh, Jaswinder},
+  institution = {School of Computer Science and Engineering, IILM University, Greater Noida},
+  year        = {2026},
+  url         = {https://github.com/iamthehimansh/DualNet-AL_Motion}
+}
+```

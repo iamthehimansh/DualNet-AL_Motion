@@ -226,15 +226,28 @@ def main():
                   "Defects found and fixed: distance precision, weight floor, GPU pooling crash, 48 s → 0.03 s clustering"],
               size=18)
 
-    log("[11/12] limitations + next")
+    log("[11/13] research paper")
+    s = D.slide("Research paper")
+    D.image(s, os.path.join(ROOT, "results", "paper_page1.png"), Inches(0.7), Inches(1.4), h=Inches(5.45))
+    D.bullets(s, ["DualNet-AL: A Bi-Network Meta-Learning Framework for Multi-Class Active Learning",
+                  "Himansh Raj, Om Narayan Pandey, Dr. Jaswinder Singh — IILM University",
+                  "5 pages, two-column IEEE style: method, leak-free protocol, 4 tables, 5 figures,",
+                  "  ablation study, cost and calibration, limitations, 22 references",
+                  "Every number generated from the held-out runs",
+                  "Code, per-run logs and demo: github.com/iamthehimansh/DualNet-AL_Motion",
+                  "Target: SCOPUS-indexed conference"],
+              x=Inches(5.0), y=Inches(1.6), w=Inches(7.8), h=Inches(5.2), size=17)
+
+    log("[12/13] limitations + next")
     s = D.slide("Limitations & next steps")
     D.bullets(s, [f"Low budget only ({rd[dsets[0]]['n_labeled'][-1]} labels) and small pools; gaps are a few points",
                   f"{len(seeds)} held-out seeds: paired comparison shown, formal significance tests still to do",
                   "Meta-learner reward uses a 500-image validation set; a label-free reward is planned",
-                  "Next: CIFAR-100 and long-tail data, Learning-Loss baseline, larger budgets on full datasets,",
-                  "  ResNet backbones, 5+ seeds with Wilcoxon tests, SCOPUS conference paper"], size=19)
+                  "Calibration (ECE) is worse than Random; temperature scaling is the planned fix",
+                  "Next: CIFAR-100 and long-tail data, BADGE and Learning-Loss baselines, larger budgets,",
+                  "  ResNet backbones, 5+ seeds with Wilcoxon tests, conference submission"], size=19)
 
-    log("[12/12] thanks")
+    log("[13/13] thanks")
     s = D.slide()
     D.text(s, "DualNet-AL", Inches(0.8), Inches(2.2), Inches(11.7), Inches(1.2), 54, NAVY, True, PP_ALIGN.CENTER)
     D.text(s, "learning how to select — not only what to classify", Inches(0.8), Inches(3.4), Inches(11.7),

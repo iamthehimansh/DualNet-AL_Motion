@@ -285,17 +285,47 @@ class S09Prototype(Base):
         self.finish()
 
 
+class S10Paper(Base):
+    key = "S10Paper"
+
+    def construct(self):
+        self.header(9, "Research paper")
+        page = ImageMobject(os.path.join(ROOT, "results", "paper_page1.png"))
+        page.height = 6.2
+        page.to_edge(LEFT, buff=0.7).shift(DOWN * 0.35)
+        info = VGroup(
+            T("DualNet-AL: A Bi-Network", 26, FG, "BOLD"),
+            T("Meta-Learning Framework for", 26, FG, "BOLD"),
+            T("Multi-Class Active Learning", 26, FG, "BOLD"),
+            T("Himansh Raj · Om Narayan Pandey", 21, ACC),
+            T("Dr. Jaswinder Singh", 21, ACC),
+            T("IILM University, Greater Noida", 18, DIM),
+            T("5 pages · 4 tables · 5 figures · 22 references", 19, FG),
+            T("all numbers from the held-out runs", 19, OK),
+            T("code + logs public on GitHub", 19, OK),
+        ).arrange(DOWN, aligned_edge=LEFT, buff=0.16)
+        info[3].shift(DOWN * 0.25)
+        info[4].shift(DOWN * 0.25)
+        info[5].shift(DOWN * 0.25)
+        for m in info[6:]:
+            m.shift(DOWN * 0.5)
+        info.next_to(page, RIGHT, buff=0.7).align_to(page, UP).shift(DOWN * 0.3)
+        self.play(FadeIn(page, shift=RIGHT * 0.4), run_time=1.0)
+        self.play(LaggedStart(*[FadeIn(m, shift=LEFT * 0.2) for m in info], lag_ratio=0.25), run_time=3.0)
+        self.finish()
+
+
 class S10Next(Base):
     key = "S10Next"
 
     def construct(self):
-        self.header(9, "Status & next steps")
+        self.header(10, "Status & next steps")
         done = VGroup(T("Completed", 28, OK, "BOLD"), *[T("• " + s, 21, FG) for s in [
             "Full pipeline + v2 method", "8 baselines, same framework", "Leak-free held-out benchmark",
-            "Tests + live demo"]]).arrange(DOWN, aligned_edge=LEFT, buff=0.2)
+            "Tests + live demo", "Research paper written"]]).arrange(DOWN, aligned_edge=LEFT, buff=0.2)
         todo = VGroup(T("Next", 28, WARN, "BOLD"), *[T("• " + s, 21, FG) for s in [
             "CIFAR-100 & long-tail data", "Larger budgets, more seeds", "Significance tests",
-            "SCOPUS conference paper"]]).arrange(DOWN, aligned_edge=LEFT, buff=0.2)
+            "Submit to a SCOPUS conference"]]).arrange(DOWN, aligned_edge=LEFT, buff=0.2)
         VGroup(done, todo).arrange(RIGHT, buff=1.6, aligned_edge=UP).shift(DOWN * 0.2)
         self.play(FadeIn(done, shift=RIGHT * 0.3))
         self.play(FadeIn(todo, shift=LEFT * 0.3))
@@ -315,4 +345,4 @@ class S11End(Base):
 
 
 SCENES = ["S01Title", "S02Problem", "S03TwoNets", "S04Signals", "S05V2", "S06Protocol", "S07Results",
-          "S08Findings", "S09Prototype", "S10Next", "S11End"]
+          "S08Findings", "S09Prototype", "S10Paper", "S10Next", "S11End"]
