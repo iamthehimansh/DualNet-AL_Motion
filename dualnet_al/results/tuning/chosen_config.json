@@ -1,0 +1,52 @@
+{
+ "chosen": "c3_half_ramp4_margin",
+ "config": {
+  "lam0": 0.5,
+  "ramp": 4,
+  "unc": "margin"
+ },
+ "protocol": "validation accuracy only, tuning seeds 0-2, one config for all datasets; test set never evaluated during tuning",
+ "val_aulc": {
+  "c1_ramp4_margin": {
+   "fmnist": 0.7933333333333333,
+   "svhn": 0.5888749999999999,
+   "cifar10": 0.4817916666666666
+  },
+  "c2_ramp8_margin": {
+   "fmnist": 0.7920416666666666,
+   "svhn": 0.5884583333333334,
+   "cifar10": 0.4740416666666667
+  },
+  "c3_half_ramp4_margin": {
+   "fmnist": 0.7974583333333333,
+   "svhn": 0.5753333333333334,
+   "cifar10": 0.491875
+  },
+  "c4_ramp4_entropy": {
+   "fmnist": 0.79025,
+   "svhn": 0.5862916666666668,
+   "cifar10": 0.4753333333333334
+  },
+  "c5_noprior_margin": {
+   "fmnist": 0.79825,
+   "svhn": 0.5260833333333333,
+   "cifar10": 0.472875
+  },
+  "c6_ramp2_margin": {
+   "fmnist": 0.7928333333333333,
+   "svhn": 0.5904166666666666,
+   "cifar10": 0.4807083333333333
+  },
+  "random": {
+   "fmnist": 0.784625,
+   "svhn": 0.5348333333333334,
+   "cifar10": 0.4805
+  },
+  "dualnet_meta": {
+   "fmnist": 0.7926666666666667,
+   "svhn": 0.54225,
+   "cifar10": 0.47979166666666667
+  }
+ },
+ "chosen_at": "2026-11-05 02:53:37"
+}

@@ -1,0 +1,33 @@
+[S01Title] (15.2s)
+DualNet-AL: a bi-network meta-learning framework for multi-class active learning. This is our mid-term and phase three progress, by Himansh Raj and Om Narayan Pandey, under the guidance of Doctor Jaswinder Singh.
+
+[S02Problem] (20.2s)
+Deep models need thousands of labelled images, and labelling is slow and expensive. Active learning labels only the most useful few. But one model choosing its own data reinforces its own mistakes, picks near-duplicates, and with very few labels its uncertainty is unreliable.
+
+[S03TwoNets] (18.1s)
+So we train two networks with different designs. Net A is a deep three by three CNN with batch norm; Net B is a wide five by five CNN with group norm. They make different mistakes, and when they disagree about an image, that image is worth labelling.
+
+[S04Signals] (15.8s)
+Every unlabelled image gets five scores: uncertainty, disagreement between the two networks, representativeness, diversity from what is already labelled, and class balance. A meta-learner re-weights these scores after every round.
+
+[S05V2] (18.9s)
+In phase three we fixed the weak point of version one. With very few labels, early rounds now favour typical images, and the learned score takes over as labels grow. Each batch takes one image from each of one hundred clusters, so it covers the whole data with no duplicates.
+
+[S06Protocol] (15.7s)
+The evaluation is leak free. Settings were chosen on validation data only, then every method was tested on new seeds the tuning never saw, from 100 to 900 labels, with identical networks and compute.
+
+[S07Results] (8.4s)
+Here is the measured label efficiency on three datasets, compared with random, BALD, core-set and our first version.
+
+[S08Findings] (44.7s)
+On Fashion-MNIST, DualNet-AL is 2.4 points above random sampling in area under the learning curve, better on 3 of 3 seeds, with final accuracy 83.7 percent. On SVHN, DualNet-AL is 4.4 points above random sampling in area under the learning curve, better on 3 of 3 seeds, with final accuracy 69.7 percent. On CIFAR-10, DualNet-AL is 1.5 points above random sampling in area under the learning curve, better on 3 of 3 seeds, with final accuracy 54.0 percent. These are means over 3 held-out seeds, reported exactly as measured.
+
+[S09Prototype] (15.1s)
+The prototype is complete: both networks, all five signals, the meta-learner, eight comparison methods in the same code, automated tests, and a live web demo that shows each round as it happens, started with one command.
+
+[S10Next] (10.3s)
+Next, we will add CIFAR one hundred and long-tail data, larger budgets, more seeds with significance tests, and write our Scopus conference paper.
+
+[S11End] (6.8s)
+DualNet-AL learns how to select, not only what to classify. Thank you.
+
