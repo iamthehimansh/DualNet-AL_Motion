@@ -11,6 +11,38 @@ Jaswinder Singh, *“DualNet-AL: A Bi-Network Meta-Learning Framework for Multi-
 🎞️ **Video:** [deliverables/DualNet-AL_Motion.mp4](deliverables/DualNet-AL_Motion.mp4) ·
 📊 **Slides:** [deliverables/DualNet-AL_Midterm.pptx](deliverables/DualNet-AL_Midterm.pptx)
 
+## ▶ Quick start — one command
+
+It installs everything it needs (Python 3.12, PyTorch with GPU support if an NVIDIA GPU is present, all packages) into
+a private folder inside the project, then opens the live demo in your browser at **http://localhost:8501**.
+Nothing is installed system-wide. Needs only `git` and an internet connection; the first run takes a few minutes,
+later runs start in seconds.
+
+**Linux / macOS** (terminal):
+
+```bash
+git clone https://github.com/iamthehimansh/DualNet-AL_Motion.git && cd DualNet-AL_Motion/dualnet_al && ./run_demo.sh
+```
+
+**Windows** (PowerShell):
+
+```powershell
+git clone https://github.com/iamthehimansh/DualNet-AL_Motion.git; cd DualNet-AL_Motion\dualnet_al; .\run_demo.bat
+```
+
+No git? Click **Code → Download ZIP** on GitHub, unzip, open the `dualnet_al` folder and double-click
+`run_demo.bat` (Windows) or run `./run_demo.sh` (Linux / macOS).
+
+In the demo: pick **fmnist**, keep **DualNet-AL v2**, press **Run active learning**. It trains both networks round by
+round and draws accuracy against a Random run on the same seed. Stop it with **Ctrl + C** (or close the window).
+
+| Want to… | Command (inside `dualnet_al/`) |
+|---|---|
+| Run the demo | `./run_demo.sh` · Windows: `run_demo.bat` |
+| Install + run the 30 tests only | `./run_demo.sh --check` |
+| Use another port / share on your network | `PORT=8600 ./run_demo.sh` · `HOST=0.0.0.0 ./run_demo.sh` |
+| Reproduce every number | see [Reproduce everything](#reproduce-everything) |
+
 Active learning trains a classifier with as few human labels as possible by letting the model choose which
 unlabelled images to label next. DualNet-AL trains **two different networks**, scores every unlabelled image with
 **five signals**, combines them with **weights a meta-learner adapts every round**, and builds each batch so it
@@ -81,6 +113,7 @@ is more accurate at almost every earlier budget. Three seeds give a paired compa
 
 ## Run the demo
 
+The one command from [Quick start](#-quick-start--one-command) does all of this. Already cloned? From the repository root:
 **Windows:** double-click `dualnet_al/run_demo.bat`.
 **Linux / macOS:** `./dualnet_al/run_demo.sh`
 
